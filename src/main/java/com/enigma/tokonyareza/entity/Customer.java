@@ -9,27 +9,27 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "m_store")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Store {
+@AllArgsConstructor
+@Table(name = "m_customer")
+public class Customer {
 
     @Id
     @GenericGenerator(strategy = "uuid2", name = "system-uuid")
     @GeneratedValue(generator = "system-uuid")
     private String id;
 
-    @Column(name = "no_siup", unique = true, nullable = false, length = 100) // no siup tidak akan mungkin bisa sama karena unique
-    private String noSiup;
-
-    @Column(length = 100, nullable = false)
+    @Column(unique = true, length = 100, nullable = false)
     private String name;
 
     @Column(length = 100, nullable = false)
     private String address;
 
-    @Column(name ="mobile_phone", unique = true, nullable = false)
+    @Column(name = "mobile_phone", length = 100, nullable = false, unique = true)
     private String mobilePhone;
- }
+
+    @Column(length = 100, nullable = false, unique = true)
+    private String email;
+}

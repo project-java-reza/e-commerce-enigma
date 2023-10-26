@@ -1,0 +1,81 @@
+
+### Create New Store
+POST http://localhost:8080/store
+Accept: application/json
+Content-Type: application/json
+
+{
+  "noSiup" : "123456",
+  "name" : "Toko Gatau",
+  "address": "Jalan Raya ",
+  "mobilePhone" : "08877334422"
+}
+
+### Get All Store
+GET http://localhost:8080/store
+Accept: application/json
+
+### Get Store By Id
+GET http://localhost:8080/store/968237cb-c341-474a-b4f3-cc1977c8a83c
+
+### Update Store
+PUT http://localhost:8080/store
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id" : "968237cb-c341-474a-b4f3-cc1977c8a83c",
+  "noSiup" : "12345684",
+  "name" : "Toko Gatau aja yaa",
+  "address": "Jalan Raya ",
+  "mobilePhone" : "088773344223"
+}
+
+### Delete Store
+DELETE http://localhost:8080/store/968237cb-c341-474a-b4f3-cc1977c8a83c
+Content-Type: application/json
+
+
+
+### Create New Customer
+POST http://localhost:8080/customer
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name" : "reza",
+  "address" : "jalan raya ",
+  "mobilePhone": "0857343887",
+  "email": "reza@gmail.com"
+}
+
+### Get All Customer
+GET http://localhost:8080/customer
+Accept: application/json
+
+### Get Customer By Id
+GET http://localhost:8080/customer/f4701c22-1662-4615-9816-f3d8967ef821
+
+### Update Customer
+PUT http://localhost:8080/customer
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id" : "f4701c22-1662-4615-9816-f3d8967ef821",
+  "name" : "rezaardiansyah",
+  "address" : "jalan raya ",
+  "mobilePhone": "0857343887",
+  "email": "reza@gmail.com"
+}
+
+### Delete Customer
+DELETE http://localhost:8080/customer/ac0e1ae6-b5ba-42a8-87a1-7813d04e880d
+Content-Type: application/json
+
+
+
+
+
+
+
