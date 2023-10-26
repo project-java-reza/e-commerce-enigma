@@ -54,7 +54,7 @@ GET http://localhost:8080/customer
 Accept: application/json
 
 ### Get Customer By Id
-GET http://localhost:8080/customer/f4701c22-1662-4615-9816-f3d8967ef821
+GET http://localhost:8080/customer/ed7ba203-5cff-4d38-a91e-f6e0331d7e05
 
 ### Update Customer
 PUT http://localhost:8080/customer
@@ -62,15 +62,15 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "id" : "f4701c22-1662-4615-9816-f3d8967ef821",
+  "id" : "ed7ba203-5cff-4d38-a91e-f6e0331d7e05",
   "name" : "rezaardiansyah",
   "address" : "jalan raya ",
-  "mobilePhone": "0857343887",
-  "email": "reza@gmail.com"
+  "mobilePhone": "08573438872",
+  "email": "rezaa@gmail.com"
 }
 
 ### Delete Customer
-DELETE http://localhost:8080/customer/ac0e1ae6-b5ba-42a8-87a1-7813d04e880d
+DELETE http://localhost:8080/customer/9fd33757-fae0-41a5-907f-7baa8eb1fb4c
 Content-Type: application/json
 
 
