@@ -1,6 +1,7 @@
 package com.enigma.tokonyareza.service.impl;
 
 import com.enigma.tokonyareza.entity.Customer;
+import com.enigma.tokonyareza.exception.DuplicateEmailException;
 import com.enigma.tokonyareza.repository.CustomerRepository;
 import com.enigma.tokonyareza.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer create(Customer customer) {
+        String email = customer.getEmail();
+
+        if (customerRepository.existsByEmail(email)) {
+            throw new DuplicateEmailException("Email sudah terdaftar.");
+        }
+
         return customerRepository.save(customer);
     }
 
