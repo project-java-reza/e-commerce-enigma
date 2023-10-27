@@ -13,7 +13,7 @@ GET http://localhost:8080/products
 Accept: application/json
 
 ### Get Product By Id
-GET http://localhost:8080/products/465540ec-e103-4add-aabf-1706b980a87f
+GET http://localhost:8080/products/1e1582f7-e010-4055-9422-31aa4c003380
 Accept: application/json
 
 
@@ -28,7 +28,7 @@ Content-Type: application/json
   "description": "Tahan banting oyy"
 }
 ### Delete Product
-DELETE http://localhost:8080/products
+DELETE http://localhost:8080/products/8727e7af-780d-47c0-83c4-30f8f03e0193
 Content-Type: application/json
 
 
