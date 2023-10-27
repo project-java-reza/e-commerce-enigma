@@ -1,7 +1,6 @@
 package com.enigma.tokonyareza.controller;
 
 import com.enigma.tokonyareza.entity.Product;
-import com.enigma.tokonyareza.entity.Store;
 import com.enigma.tokonyareza.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
