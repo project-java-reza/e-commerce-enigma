@@ -17,6 +17,7 @@ Accept: application/json
 
 ### Get Store By Id
 GET http://localhost:8080/store/968237cb-c341-474a-b4f3-cc1977c8a83c
+Accept: application/json
 
 ### Update Store
 PUT http://localhost:8080/store
@@ -46,7 +47,7 @@ Content-Type: application/json
   "name" : "reza",
   "address" : "jalan raya ",
   "mobilePhone": "0857343887",
-  "email": "reza@gmail.com"
+  "email": "rezaa@gmail.com"
 }
 
 ### Get All Customer
@@ -55,6 +56,8 @@ Accept: application/json
 
 ### Get Customer By Id
 GET http://localhost:8080/customer/ed7ba203-5cff-4d38-a91e-f6e0331d7e05
+Accept: application/json
+
 
 ### Update Customer
 PUT http://localhost:8080/customer
@@ -62,15 +65,16 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "id" : "ed7ba203-5cff-4d38-a91e-f6e0331d7e05",
+  "id" : "ed7ba203-5cff-4d38-a91e-f6e0331d7e05werw",
   "name" : "rezaardiansyah",
   "address" : "jalan raya ",
   "mobilePhone": "08573438872",
   "email": "rezaa@gmail.com"
 }
 
+
 ### Delete Customer
-DELETE http://localhost:8080/customer/9fd33757-fae0-41a5-907f-7baa8eb1fb4c
+DELETE http://localhost:8080/customer/0da481a1-57e3-49c8-aa0d-7b2e16ebba74
 Content-Type: application/json
 
 

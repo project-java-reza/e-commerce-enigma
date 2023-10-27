@@ -15,7 +15,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
 
-
     @Override
     public Customer create(Customer customer) {
         String email = customer.getEmail();
@@ -42,8 +41,9 @@ public class CustomerServiceImpl implements CustomerService {
         Customer currentCustomer= getById(customer.getId());
         if (currentCustomer != null) {
             return customerRepository.save(customer);
+        } else {
+ throw new RuntimeException("Pelanggan dengan ID " + customer.getId() + " tidak ditemukan. Tidak dapat melakukan pembaruan.");
         }
-        return null;
     }
 
     @Override

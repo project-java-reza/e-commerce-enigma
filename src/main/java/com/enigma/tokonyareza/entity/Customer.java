@@ -21,7 +21,7 @@ public class Customer {
     @GeneratedValue(generator = "system-uuid")
     private String id;
 
-    @Column(unique = true, length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String name;
 
     @Column(length = 100, nullable = false)

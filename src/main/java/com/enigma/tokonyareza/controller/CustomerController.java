@@ -9,7 +9,8 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class CustomerController {
+public class
+CustomerController {
 
     private final CustomerService customerService;
 
