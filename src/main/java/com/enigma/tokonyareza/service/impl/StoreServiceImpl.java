@@ -40,4 +40,6 @@ public class StoreServiceImpl implements StoreService {
     public void delete(String id) {
         storeRepository.deleteById(id);
     }
+
+
 }
