@@ -17,6 +17,7 @@ Accept: application/json
 
 ### Get Store By Id
 GET http://localhost:8080/store/968237cb-c341-474a-b4f3-cc1977c8a83c
+Accept: application/json
 
 ### Update Store
 PUT http://localhost:8080/store
@@ -35,3 +36,6 @@ Content-Type: application/json
 DELETE http://localhost:8080/store/968237cb-c341-474a-b4f3-cc1977c8a83c
 Content-Type: application/json
 
+### Get All Data Store
+GET http://localhost:8080/store/dto
+Accept: application/json
