@@ -2,7 +2,6 @@ package com.enigma.tokonyareza.model.response;
 
 import lombok.*;
 
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor
