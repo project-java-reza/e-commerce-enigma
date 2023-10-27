@@ -11,6 +11,6 @@ public class StoreResponse {
 
     private String id;
     private String storeName;
-    private String address;
+    private String storeAddress;
 
 }
