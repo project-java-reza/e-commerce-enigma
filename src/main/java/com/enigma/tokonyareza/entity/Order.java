@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @Table(name = "m_order")
 @Builder(toBuilder = true)
-public class OrderDetail {
+public class Order {
 
     @Id
     @GenericGenerator(strategy = "uuid2", name= "system-uuid")
