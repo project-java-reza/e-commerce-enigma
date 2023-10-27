@@ -1,6 +1,7 @@
 package com.enigma.tokonyareza.service;
 
 import com.enigma.tokonyareza.entity.Product;
+import com.enigma.tokonyareza.model.request.ProductRequest;
 import com.enigma.tokonyareza.model.response.ProductResponse;
 
 import java.util.List;

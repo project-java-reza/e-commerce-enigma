@@ -1,8 +1,13 @@
 package com.enigma.tokonyareza.controller;
 
 import com.enigma.tokonyareza.entity.Product;
+import com.enigma.tokonyareza.model.request.ProductRequest;
+import com.enigma.tokonyareza.model.response.CommonResponse;
+import com.enigma.tokonyareza.model.response.ProductResponse;
 import com.enigma.tokonyareza.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,5 +42,16 @@ public class ProductController {
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable String id) {
         productService.delete(id);
+    }
+
+    @PostMapping(value = "/all")
+    public ResponseEntity<?> createProductAll(@RequestBody ProductRequest productRequest) {
+        ProductResponse productResponse = productService.createProduct(productRequest);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(CommonResponse.<ProductResponse>builder()
+                .statusCode(HttpStatus.CREATED.value())
+                        .message("Successfully Create New Product")
+                        .data(productResponse)
+                        .build());
     }
 }

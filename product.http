@@ -31,7 +31,18 @@ Content-Type: application/json
 DELETE http://localhost:8080/products/8727e7af-780d-47c0-83c4-30f8f03e0193
 Content-Type: application/json
 
+### Create product all beserta relasi dari ProductPrice
+POST http://localhost:8080/products/all
+Accept: application/json
+Content-Type: application/json
 
+{
+  "productName": "Kaos polos",
+  "description": "Belang-belang",
+  "price": 5000000,
+  "stock": 1,
+  "storeId": "6ee3df1c-37ce-489e-aece-e16ac6c7c549"
+}
 
 
 
