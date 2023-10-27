@@ -53,7 +53,7 @@ public class StoreServiceImpl implements StoreService {
             StoreResponse response = StoreResponse.builder()
                     .id(store.getId())
                     .storeName(store.getName())
-                    .address(store.getAddress())
+                    .storeAddress(store.getAddress())
                     .build();
             responses.add(response);
         }
