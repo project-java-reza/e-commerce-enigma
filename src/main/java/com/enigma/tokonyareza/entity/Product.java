@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -26,4 +27,7 @@ public class Product {
 
     @Column(length = 255, nullable = false)
     private String description;
+
+    @OneToMany(mappedBy = "product")
+    private List<ProductPrice> productPrices;
 }
