@@ -77,6 +77,41 @@ Content-Type: application/json
 DELETE http://localhost:8080/customer/0da481a1-57e3-49c8-aa0d-7b2e16ebba74
 Content-Type: application/json
 
+### Create New Product
+POST http://localhost:8080/products
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Mackbook",
+  "description": "Tahan banting"
+}
+
+### Get All Customer
+GET http://localhost:8080/products
+Accept: application/json
+
+### Get Customer By Id
+GET http://localhost:8080/products/465540ec-e103-4add-aabf-1706b980a87f
+Accept: application/json
+
+
+### Update Customer
+PUT http://localhost:8080/products
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "465540ec-e103-4add-aabf-1706b980a87f",
+  "name": "Mackbook",
+  "description": "Tahan banting oyy"
+}
+### Delete Customer
+DELETE http://localhost:8080/products
+Content-Type: application/json
+
+
+
 
 
 
