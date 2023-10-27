@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface ProductPriceRepository extends JpaRepository<ProductPrice, String> {
 
+    // ini kondisi dimana kita harus pilih dulu price yang aktif atau tidak
     Optional<ProductPrice> findByProduct_IdAndIsActive(String productId, Boolean active);
 }
