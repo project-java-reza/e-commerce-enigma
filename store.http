@@ -1,0 +1,37 @@
+
+### Create New Store
+POST http://localhost:8080/store
+Accept: application/json
+Content-Type: application/json
+
+{
+  "noSiup" : "123456",
+  "name" : "Toko Gatau",
+  "address": "Jalan Raya ",
+  "mobilePhone" : "08877334422"
+}
+
+### Get All Store
+GET http://localhost:8080/store
+Accept: application/json
+
+### Get Store By Id
+GET http://localhost:8080/store/968237cb-c341-474a-b4f3-cc1977c8a83c
+
+### Update Store
+PUT http://localhost:8080/store
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id" : "968237cb-c341-474a-b4f3-cc1977c8a83c",
+  "noSiup" : "12345684",
+  "name" : "Toko Gatau aja yaa",
+  "address": "Jalan Raya ",
+  "mobilePhone" : "088773344223"
+}
+
+### Delete Store
+DELETE http://localhost:8080/store/968237cb-c341-474a-b4f3-cc1977c8a83c
+Content-Type: application/json
+
