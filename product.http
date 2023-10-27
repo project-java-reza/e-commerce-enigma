@@ -27,6 +27,8 @@ Content-Type: application/json
   "name": "Mackbook",
   "description": "Tahan banting oyy"
 }
+
+
 ### Delete Product
 DELETE http://localhost:8080/products/8727e7af-780d-47c0-83c4-30f8f03e0193
 Content-Type: application/json
