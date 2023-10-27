@@ -1,14 +1,18 @@
 package com.enigma.tokonyareza.controller;
 
 import com.enigma.tokonyareza.entity.Store;
+import com.enigma.tokonyareza.model.response.StoreResponse;
 import com.enigma.tokonyareza.service.StoreService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+
 public class StoreController {
 
     private final StoreService storeService;
@@ -36,5 +40,11 @@ public class StoreController {
     @DeleteMapping("/store/{id}")
     public void deleteStore(@PathVariable String id) {
         storeService.delete(id);
+    }
+
+    @GetMapping("/store/dto")
+    public ResponseEntity<List<StoreResponse>> getAllStoreResponse() {
+        List<StoreResponse> allStoreResponse = storeService.getAllResponse();
+        return new ResponseEntity<>(allStoreResponse, HttpStatus.OK);
     }
 }
