@@ -9,33 +9,33 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/products")
 public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping(value = "/products")
+    @PostMapping
     public Product createNewProduct(@RequestBody Product product) {
         return productService.create(product);
     }
 
-    @GetMapping(value = "/products")
+    @GetMapping
     public List<Product> getAllProduct() {
         return productService.getAll();
     }
 
-    @GetMapping(value = "/products/{id}")
+    @GetMapping(value = "/{id}")
     public Product getProductById(@PathVariable String id) {
         return productService.getById(id);
     }
 
-    @PutMapping("/products")
+    @PutMapping
     public Product updateProduct(@RequestBody Product product) {
         return productService.update(product);
     }
 
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable String id) {
         productService.delete(id);
     }
-
 }
