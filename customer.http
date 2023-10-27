@@ -1,0 +1,45 @@
+### Create New Customer
+POST http://localhost:8080/customer
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name" : "reza",
+  "address" : "jalan raya ",
+  "mobilePhone": "0857343887",
+  "email": "rezaa@gmail.com"
+}
+
+### Get All Customer
+GET http://localhost:8080/customer
+Accept: application/json
+
+### Get Customer By Id
+GET http://localhost:8080/customer/ed7ba203-5cff-4d38-a91e-f6e0331d7e05
+Accept: application/json
+
+
+### Update Customer
+PUT http://localhost:8080/customer
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id" : "ed7ba203-5cff-4d38-a91e-f6e0331d7e05werw",
+  "name" : "rezaardiansyah",
+  "address" : "jalan raya ",
+  "mobilePhone": "08573438872",
+  "email": "rezaa@gmail.com"
+}
+
+
+### Delete Customer
+DELETE http://localhost:8080/customer/0da481a1-57e3-49c8-aa0d-7b2e16ebba74
+Content-Type: application/json
+
+
+
+
+
+
+
