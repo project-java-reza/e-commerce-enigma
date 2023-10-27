@@ -1,0 +1,108 @@
+
+### Create New Store
+POST http://localhost:8080/store
+Accept: application/json
+Content-Type: application/json
+
+{
+  "noSiup" : "123456",
+  "name" : "Toko Gatau",
+  "address": "Jalan Raya ",
+  "mobilePhone" : "08877334422"
+}
+
+### Get All Store
+GET http://localhost:8080/store
+Accept: application/json
+
+### Get Store By Id
+GET http://localhost:8080/store/968237cb-c341-474a-b4f3-cc1977c8a83c
+
+### Update Store
+PUT http://localhost:8080/store
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id" : "968237cb-c341-474a-b4f3-cc1977c8a83c",
+  "noSiup" : "12345684",
+  "name" : "Toko Gatau aja yaa",
+  "address": "Jalan Raya ",
+  "mobilePhone" : "088773344223"
+}
+
+### Delete Store
+DELETE http://localhost:8080/store/968237cb-c341-474a-b4f3-cc1977c8a83c
+Content-Type: application/json
+
+### Create New Customer
+POST http://localhost:8080/customer
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name" : "reza",
+  "address" : "jalan raya ",
+  "mobilePhone": "0857343887",
+  "email": "rezaa@gmail.com"
+}
+
+### Get All Customer
+GET http://localhost:8080/customer
+Accept: application/json
+
+### Get Customer By Id
+GET http://localhost:8080/customer/ed7ba203-5cff-4d38-a91e-f6e0331d7e05
+Accept: application/json
+
+
+### Update Customer
+PUT http://localhost:8080/customer
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id" : "ed7ba203-5cff-4d38-a91e-f6e0331d7e05werw",
+  "name" : "rezaardiansyah",
+  "address" : "jalan raya ",
+  "mobilePhone": "08573438872",
+  "email": "rezaa@gmail.com"
+}
+
+
+### Delete Customer
+DELETE http://localhost:8080/customer/0da481a1-57e3-49c8-aa0d-7b2e16ebba74
+Content-Type: application/json
+
+### Create New Product
+POST http://localhost:8080/products
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Mackbook",
+  "description": "Tahan banting"
+}
+
+### Get All Products
+GET http://localhost:8080/products
+Accept: application/json
+
+### Get Product By Id
+GET http://localhost:8080/products/1e1582f7-e010-4055-9422-31aa4c003380
+Accept: application/json
+
+
+### Update Product
+PUT http://localhost:8080/products
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "465540ec-e103-4add-aabf-1706b980a87f",
+  "name": "Mackbook",
+  "description": "Tahan banting oyy"
+}
+### Delete Product
+DELETE http://localhost:8080/products/8727e7af-780d-47c0-83c4-30f8f03e0193
+Content-Type: application/json
