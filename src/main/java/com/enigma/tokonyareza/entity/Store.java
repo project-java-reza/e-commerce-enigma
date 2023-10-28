@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "m_store")
@@ -32,4 +33,7 @@ public class Store {
 
     @Column(name ="mobile_phone", unique = true, nullable = false)
     private String mobilePhone;
+
+    @OneToMany(mappedBy = "store")
+    private List<ProductPrice> productPrice;
  }

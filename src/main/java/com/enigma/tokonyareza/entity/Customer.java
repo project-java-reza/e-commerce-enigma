@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -32,4 +33,7 @@ public class Customer {
 
     @Column(length = 100, nullable = false, unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orders;
 }
