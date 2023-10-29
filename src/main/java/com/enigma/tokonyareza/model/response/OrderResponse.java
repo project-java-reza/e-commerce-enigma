@@ -16,8 +16,6 @@ public class OrderResponse {
    private String customerMobilePhone;
    private String customerEmail;
    private String error;
-
-
    private LocalDateTime date;
    private OrderDetailResponse orderDetailResponse;
 }
