@@ -16,7 +16,7 @@ GET http://localhost:8080/store
 Accept: application/json
 
 ### Get Store By Id
-GET http://localhost:8080/store/968237cb-c341-474a-b4f3-cc1977c8a83c
+GET http://localhost:8080/store/
 
 ### Update Store
 PUT http://localhost:8080/store
@@ -41,10 +41,10 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name" : "reza",
+  "name" : "rizqi",
   "address" : "jalan raya ",
-  "mobilePhone": "0857343887",
-  "email": "rezaa@gmail.com"
+  "mobilePhone": "0856744333",
+  "email": "rizqi@gmail.com"
 }
 
 ### Get All Customer
@@ -106,3 +106,30 @@ Content-Type: application/json
 ### Delete Product
 DELETE http://localhost:8080/products/8727e7af-780d-47c0-83c4-30f8f03e0193
 Content-Type: application/json
+
+
+### Create product all dan relasi dari ProductPrice, Store
+POST http://localhost:8080/products/all
+Accept: application/json
+Content-Type: application/json
+
+{
+  "productName": "Sikat Gigi",
+  "description": "Untuk sikat gigi bukan untuk sikat motor",
+  "price": 10000,
+  "stock": 70,
+  "storeId": "6ee3df1c-37ce-489e-aece-e16ac6c7c549"
+}
+
+### Create Order
+POST http://localhost:8080/order/create
+Accept: application/json
+Content-Type: application/json
+
+{
+  "customerId": "cbb5114f-0d4c-46f6-b91e-0978f29ec504",
+  "orderQuantity": 20,
+  "productPriceId" : "b61518e3-2382-4429-ad31-633b2778da26"
+}
+
+

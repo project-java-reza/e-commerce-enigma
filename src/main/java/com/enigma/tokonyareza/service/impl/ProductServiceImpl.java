@@ -74,6 +74,7 @@ public class ProductServiceImpl implements ProductService {
                 .isActive(true)
                 .build();
         productPriceService.create(productPrice);
+
         return ProductResponse.builder()
                 .id(product.getId())
                 .productName(product.getName())

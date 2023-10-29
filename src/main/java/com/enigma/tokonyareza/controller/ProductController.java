@@ -1,9 +1,11 @@
 package com.enigma.tokonyareza.controller;
 
 import com.enigma.tokonyareza.entity.Product;
+import com.enigma.tokonyareza.entity.ProductPrice;
 import com.enigma.tokonyareza.model.request.ProductRequest;
 import com.enigma.tokonyareza.model.response.CommonResponse;
 import com.enigma.tokonyareza.model.response.ProductResponse;
+import com.enigma.tokonyareza.service.ProductPriceService;
 import com.enigma.tokonyareza.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +21,9 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping
+    private final ProductPriceService productPriceService;
+
+    @PostMapping(value="/post")
     public Product createNewProduct(@RequestBody Product product) {
         return productService.create(product);
     }
@@ -54,4 +58,5 @@ public class ProductController {
                         .data(productResponse)
                         .build());
     }
+
 }

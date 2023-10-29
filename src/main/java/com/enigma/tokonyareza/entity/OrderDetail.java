@@ -1,10 +1,7 @@
 package com.enigma.tokonyareza.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -15,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "t_order_detail")
+@Builder
 public class OrderDetail {
 
     @Id
@@ -26,10 +24,11 @@ public class OrderDetail {
     @JoinColumn(name="order_id")
     private Order order;
 
-
     @ManyToOne
     @JoinColumn(name="product_price_id")
     private ProductPrice productPrice;
 
     private Integer quantity;
+
+
 }

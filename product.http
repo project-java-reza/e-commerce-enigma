@@ -1,5 +1,5 @@
 ### Create New Product
-POST http://localhost:8080/products
+POST http://localhost:8080/products/post
 Accept: application/json
 Content-Type: application/json
 
@@ -13,7 +13,7 @@ GET http://localhost:8080/products
 Accept: application/json
 
 ### Get Product By Id
-GET http://localhost:8080/products/1e1582f7-e010-4055-9422-31aa4c003380
+GET http://localhost:8080/products/3bb46fa0-cdcf-40fd-9171-f3679c2191ab
 Accept: application/json
 
 
@@ -28,21 +28,8 @@ Content-Type: application/json
   "description": "Tahan banting oyy"
 }
 ### Delete Product
-DELETE http://localhost:8080/products/8727e7af-780d-47c0-83c4-30f8f03e0193
+DELETE http://localhost:8080/products/
 Content-Type: application/json
-
-### Create product all beserta relasi dari ProductPrice
-POST http://localhost:8080/products/all
-Accept: application/json
-Content-Type: application/json
-
-{
-  "productName": "Kaos polos",
-  "description": "Belang-belang",
-  "price": 5000000,
-  "stock": 1,
-  "storeId": "6ee3df1c-37ce-489e-aece-e16ac6c7c549"
-}
 
 
 
