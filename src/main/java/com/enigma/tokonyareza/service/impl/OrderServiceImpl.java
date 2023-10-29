@@ -35,6 +35,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(rollbackOn = Exception.class)
     public OrderResponse createOrder(OrderRequest request) {
+
         System.out.println("Customer Id " + request.getCustomerId());
         Customer customer = customerService.getById(request.getCustomerId());
 

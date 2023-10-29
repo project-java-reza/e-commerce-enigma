@@ -114,22 +114,22 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "productName": "Sikat Gigi",
-  "description": "Untuk sikat gigi bukan untuk sikat motor",
-  "price": 10000,
-  "stock": 70,
+  "productName": "Shampo Pantene Black",
+  "description": "Bagi yang kepalanya botak disarankan tidak menggunakan product ini karena percuma tidak bekerja ",
+  "price": 7000,
+  "stock": 80,
   "storeId": "6ee3df1c-37ce-489e-aece-e16ac6c7c549"
 }
 
-### Create Order
+### Create Order dan Order Details
 POST http://localhost:8080/order/create
 Accept: application/json
 Content-Type: application/json
 
 {
-  "customerId": "cbb5114f-0d4c-46f6-b91e-0978f29ec504",
-  "orderQuantity": 40,
-  "productPriceId" : "b61518e3-2382-4429-ad31-633b2778da26"
+  "customerId": "137c29e4-c63f-4cf2-8f5a-4e5d6378bdd7",
+  "orderQuantity": 80,
+  "productPriceId" : "25a7209d-f5bc-416d-bed6-fedf4f7d3b79"
 }
 
 
