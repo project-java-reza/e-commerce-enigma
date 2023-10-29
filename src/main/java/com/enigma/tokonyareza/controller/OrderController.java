@@ -23,12 +23,22 @@ public class OrderController {
     @PostMapping("/create")
     public ResponseEntity<?> createOrder(@RequestBody OrderRequest orderRequest) {
         OrderResponse orderResponse = orderService.createOrder(orderRequest);
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(CommonResponse.builder()
-                .statusCode(HttpStatus.CREATED.value())
-                   .message("Successfully Create New Order")
-                        .data(orderResponse)
-                        .build());
+        if(orderResponse.getError() != null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(CommonResponse.builder()
+                            .statusCode(HttpStatus.BAD_REQUEST.value())
+                            .message("Failed to Create New Order: " + orderResponse.getError())
+                            .data(orderResponse)
+                            .build());
+        } else {
+            // pesanan berhasil dibuat
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(CommonResponse.builder()
+                            .statusCode(HttpStatus.CREATED.value())
+                            .message("Successfully Create New Order")
+                            .data(orderResponse)
+                            .build());
+        }
     }
 
 }
