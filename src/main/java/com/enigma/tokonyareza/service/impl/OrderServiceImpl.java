@@ -71,7 +71,7 @@ public class OrderServiceImpl implements OrderService {
                     .build();
         } else {
             return OrderResponse.builder()
-                    .error("Product out of stock")
+                    .error("Product not found")
                     .build();
         }
     }
