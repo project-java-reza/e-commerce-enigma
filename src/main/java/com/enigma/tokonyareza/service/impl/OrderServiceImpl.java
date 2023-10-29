@@ -42,38 +42,37 @@ public class OrderServiceImpl implements OrderService {
         ProductPrice productPrice = productPriceService.getById(request.getProductPriceId());
 
         if (productPrice.getStock() >= request.getOrderQuantity()) {
-            Integer newStock =  productPrice.getStock() - request.getOrderQuantity();
+            Integer newStock = productPrice.getStock() - request.getOrderQuantity();
             productPrice.setStock(newStock);
+                productPriceRepository.saveAndFlush(productPrice);
 
-            productPriceRepository.saveAndFlush(productPrice);
+                Order order = Order.builder()
+                        .transDate(LocalDateTime.now())
+                        .customer(customer)
+                        .build();
 
-            Order order = Order.builder()
-                    .transDate(LocalDateTime.now())
-                    .customer(customer)
-                    .build();
+                orderRepository.saveAndFlush(order);
 
-            orderRepository.saveAndFlush(order);
+                OrderDetail orderDetail = OrderDetail.builder()
+                        .quantity(request.getOrderQuantity())
+                        .order(order)
+                        .productPrice(productPrice)
+                        .build();
 
-            OrderDetail orderDetail = OrderDetail.builder()
-                    .quantity(request.getOrderQuantity())
-                    .order(order)
-                    .productPrice(productPrice)
-                    .build();
+                orderDetailRepository.saveAndFlush(orderDetail);
 
-            orderDetailRepository.saveAndFlush(orderDetail);
-
-            return OrderResponse.builder()
-                    .orderId(order.getId())
-                    .customerName(customer.getName())
-                    .customerAddress(customer.getAddress())
-                    .customerMobilePhone(customer.getMobilePhone())
-                    .customerEmail(customer.getEmail())
-                    .build();
-        } else {
-            return OrderResponse.builder()
-                    .error("Product not found")
-                    .build();
-        }
+                return OrderResponse.builder()
+                        .orderId(order.getId())
+                        .customerName(customer.getName())
+                        .customerAddress(customer.getAddress())
+                        .customerMobilePhone(customer.getMobilePhone())
+                        .customerEmail(customer.getEmail())
+                        .build();
+            } else {
+                return OrderResponse.builder()
+                        .error("Product Out Of Stock")
+                        .build();
+            }
     }
 
 }
