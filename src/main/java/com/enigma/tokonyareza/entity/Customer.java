@@ -34,6 +34,6 @@ public class Customer {
     @Column(length = 100, nullable = false, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "customer")
-    private List<Order> orders;
+    /*@OneToMany(mappedBy = "customer")
+    private List<Order> orders;*/
 }

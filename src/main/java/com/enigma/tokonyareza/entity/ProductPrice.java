@@ -20,7 +20,7 @@ public class ProductPrice {
     @GeneratedValue(generator = "system-uuid")
     private String id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "int check (stock >0)")
     private Integer stock;
 
     @Column(nullable = false)
@@ -37,6 +37,6 @@ public class ProductPrice {
     @JoinColumn(name = "store_id")
     private Store store;
 
-    @OneToMany(mappedBy = "productPrice")
-    private List<OrderDetail> orderDetails;
+  /*  @OneToMany(mappedBy = "productPrice")
+    private List<OrderDetail> orderDetails;*/
 }

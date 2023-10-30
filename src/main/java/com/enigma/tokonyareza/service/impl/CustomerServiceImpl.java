@@ -5,7 +5,10 @@ import com.enigma.tokonyareza.exception.DuplicateEmailException;
 import com.enigma.tokonyareza.repository.CustomerRepository;
 import com.enigma.tokonyareza.service.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -17,18 +20,16 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer create(Customer customer) {
-        String email = customer.getEmail();
-
-        if (customerRepository.existsByEmail(email)) {
-            throw new DuplicateEmailException("Email sudah terdaftar.");
+        try {
+            return customerRepository.save(customer);
+        } catch (DataIntegrityViolationException exception) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "email already used");
         }
-
-        return customerRepository.save(customer);
     }
 
     @Override
     public Customer getById(String id) {
-        return customerRepository.findById(id).get();
+        return customerRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "customer not found"));
     }
 
     @Override
@@ -47,7 +48,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void delete(String id) {
-        customerRepository.deleteById(id);
+    public void deleteById(String id) {
+        Customer customer = getById(id);
+        customerRepository.delete(customer);
     }
 }

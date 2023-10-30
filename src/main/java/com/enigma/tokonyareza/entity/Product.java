@@ -1,5 +1,6 @@
 package com.enigma.tokonyareza.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -27,5 +28,6 @@ public class Product {
     private String description;
 
     @OneToMany(mappedBy = "product")
+    @JsonManagedReference
     private List<ProductPrice> productPrices;
 }

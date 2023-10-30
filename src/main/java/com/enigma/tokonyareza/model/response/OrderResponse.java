@@ -3,6 +3,7 @@ package com.enigma.tokonyareza.model.response;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -10,11 +11,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder(toBuilder = true)
 public class OrderResponse {
-   private String orderId;
-   private String customerName;
-   private String customerAddress;
-   private String customerMobilePhone;
-   private String customerEmail;
-   private String error;
-   private LocalDateTime date;
+    private String orderId;
+    private LocalDateTime transDate;
+    private CustomerResponse customer;
+    private List<OrderDetailResponse> orderDetail;
+    private String error;
 }

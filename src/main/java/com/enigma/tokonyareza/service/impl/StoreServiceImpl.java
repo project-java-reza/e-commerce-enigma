@@ -40,7 +40,7 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public void delete(String id) {
+    public void deleteById(String id) {
         storeRepository.deleteById(id);
     }
 
@@ -59,4 +59,6 @@ public class StoreServiceImpl implements StoreService {
         }
         return responses;
     }
+
+
 }

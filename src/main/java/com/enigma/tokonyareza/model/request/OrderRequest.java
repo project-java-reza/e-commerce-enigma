@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -11,9 +12,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder(toBuilder = true)
 public class OrderRequest {
-    private String orderId;
-    private Integer orderQuantity;
-    private String productPriceId;
     private String customerId;
-
+    private List<OrderDetailRequest> orderDetail;
 }

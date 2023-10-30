@@ -34,6 +34,6 @@ public class Store {
     @Column(name ="mobile_phone", unique = true, nullable = false)
     private String mobilePhone;
 
-    @OneToMany(mappedBy = "store")
-    private List<ProductPrice> productPrice;
+    /*@OneToMany(mappedBy = "store")
+    private List<ProductPrice> productPrice;*/
  }

@@ -9,7 +9,7 @@ public interface StoreService { // ngga harus interface cuma wajib harus punya c
     Store getById (String id);
     List<Store> getAll();
     Store update(Store store);
-    void delete(String id);
+    void deleteById(String id);
 
     List<StoreResponse> getAllResponse();
 }

@@ -38,8 +38,8 @@ public class StoreController {
     }
 
     @DeleteMapping("/store/{id}")
-    public void deleteStore(@PathVariable String id) {
-        storeService.delete(id);
+    public void delete(@PathVariable String id) {
+        storeService.deleteById(id);
     }
 
     @GetMapping("/store/dto")

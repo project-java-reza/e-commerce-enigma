@@ -13,5 +13,6 @@ public class StoreResponse {
     private String storeName;
     private String storeAddress;
     private String noSiup;
+    private String address;
 
 }

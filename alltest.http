@@ -118,7 +118,7 @@ Content-Type: application/json
   "description": "Bagi yang kepalanya botak disarankan tidak menggunakan product ini karena percuma tidak bekerja ",
   "price": 7000,
   "stock": 80,
-  "storeId": "6ee3df1c-37ce-489e-aece-e16ac6c7c549"
+  "storeId": "27872f6e-e64d-4b35-a713-18d7d540d6d5"
 }
 
 ### Create Order dan Order Details
@@ -127,9 +127,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "customerId": "137c29e4-c63f-4cf2-8f5a-4e5d6378bdd7",
+  "customerId": "9a591260-f488-4e78-baff-bb10f5940d7a",
   "orderQuantity": 2,
-  "productPriceId" : "25a7209d-f5bc-416d-bed6-fedf4f7d3b79"
+  "productPriceId" : "f585f414-18ce-4ec8-9b36-c3381edfdfe6"
 }
 
 
