@@ -128,8 +128,9 @@ Content-Type: application/json
 
 {
   "customerId": "137c29e4-c63f-4cf2-8f5a-4e5d6378bdd7",
-  "orderQuantity": 80,
+  "orderQuantity": 2,
   "productPriceId" : "25a7209d-f5bc-416d-bed6-fedf4f7d3b79"
 }
+
 
 

@@ -31,7 +31,6 @@ public class OrderController {
                             .data(orderResponse)
                             .build());
         } else {
-            // pesanan berhasil dibuat
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(CommonResponse.builder()
                             .statusCode(HttpStatus.CREATED.value())
