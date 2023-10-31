@@ -46,7 +46,7 @@ class CustomerControllerTest {
         when(customerService.create(any(Customer.class))).thenReturn(dummyCustomer);
 
         // verify ini yang beda, untuk mengirimkan HTTP ke endpoint controller
-        mockMvc.perform(post("/customer")
+        mockMvc.perform(post("/api/customer")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(dummyCustomer)))
                 .andExpect(status().isCreated())
@@ -76,7 +76,7 @@ class CustomerControllerTest {
         when(customerService.getAll()).thenReturn(dummyCustomers);
 
 
-        mockMvc.perform(get("/customer"))
+        mockMvc.perform(get("/api/customer"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.statusCode").value(200))
                 .andExpect(jsonPath("$.message").value("Successfully get all customer"))
@@ -87,7 +87,6 @@ class CustomerControllerTest {
         // and Expect sama seperti sebelumnya assertEqual
 
         verify(customerService, times(1)).getAll();
-
     }
 
     @Test
@@ -98,13 +97,14 @@ class CustomerControllerTest {
 
         when(customerService.getById(dummyCustomer.getId())).thenReturn(dummyCustomer);
 
-        mockMvc.perform(get("/customer/{id}", dummyCustomer.getId()))
+        mockMvc.perform(get("/api/customer/{id}", dummyCustomer.getId()))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.statusCode").value(200))
                 .andExpect(jsonPath("$.message").value("Successfully get customer by id"))
                 .andExpect(jsonPath("$.data.id").value(dummyCustomer.getId()));
 
         verify(customerService, times(1)).getById(dummyCustomer.getId());
+
         System.out.println("Data ID " + dummyCustomer.getId());
     }
 
@@ -118,13 +118,14 @@ class CustomerControllerTest {
         dummyCustomer.setMobilePhone("08756456464");
 
         when(customerService.update(any(Customer.class))).thenReturn(dummyCustomer);
+        // yang pake any kalau ngga create atau update
 
-        mockMvc.perform(put("/customer")
+        mockMvc.perform(put("/api/customer")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(dummyCustomer)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.statusCode").value(200))
-                .andExpect(jsonPath("$.message").value("Successfully update customer"))
+          .andExpect(jsonPath("$.message").value("Successfully update customer"))
                 .andExpect(jsonPath("$.data.id").value(dummyCustomer.getId()))
                 .andExpect(jsonPath("$.data.name").value(dummyCustomer.getName()))
                 .andExpect(jsonPath("$.data.address").value(dummyCustomer.getAddress()))
@@ -139,7 +140,7 @@ class CustomerControllerTest {
 
         doNothing().when(customerService).deleteById(customerId);
 
-        mockMvc.perform(delete("/customer/{id}", customerId))
+        mockMvc.perform(delete("/api/customer/{id}", customerId))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.statusCode").value(200))
                 .andExpect(jsonPath("$.message").value("Successfully delete customer"));

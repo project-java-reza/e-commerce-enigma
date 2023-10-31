@@ -12,12 +12,13 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(path = "/api/customer")
 public class
 CustomerController {
 
     private final CustomerService customerService;
 
-    @PostMapping(value = "/customer")
+    @PostMapping
     public ResponseEntity<?> createNewCustomer(@RequestBody Customer customer) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(CommonResponse.<Customer>builder()
@@ -27,7 +28,8 @@ CustomerController {
                         .build());
     }
 
-    @GetMapping(value = "/customer")
+
+    @GetMapping
     public ResponseEntity<?> getAllCustomer() {
         List<Customer> customers = customerService.getAll();
         return ResponseEntity.status(HttpStatus.OK)
@@ -38,7 +40,7 @@ CustomerController {
                         .build());
     }
 
-    @GetMapping(value = "/customer/{id}")
+    @GetMapping(path = "{id}")
     public ResponseEntity<?> getCustomerId(@PathVariable String id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(CommonResponse.<Customer>builder()
@@ -48,7 +50,7 @@ CustomerController {
                         .build());
     }
 
-    @PutMapping("/customer")
+    @PutMapping
     public ResponseEntity<?> updateCustomer(@RequestBody Customer customer) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(CommonResponse.<Customer>builder()
@@ -58,7 +60,7 @@ CustomerController {
                         .build());
     }
 
-    @DeleteMapping("/customer/{id}")
+    @DeleteMapping(path = "{id}")
     public ResponseEntity<?> deleteCustomer(@PathVariable String id) {
         customerService.deleteById(id);
         Customer customer = new Customer();
