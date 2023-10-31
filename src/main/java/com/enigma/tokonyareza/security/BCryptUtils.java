@@ -13,4 +13,5 @@ public class BCryptUtils {
     private String hashPassword(String password) {
         return passwordEncoder.encode(password);
     }
+
 }
