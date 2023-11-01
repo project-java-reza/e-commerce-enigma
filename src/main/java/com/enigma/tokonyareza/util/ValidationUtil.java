@@ -1,12 +1,10 @@
 package com.enigma.tokonyareza.util;
 
 import lombok.RequiredArgsConstructor;
-import org.hibernate.exception.ConstraintViolationException;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import javax.validation.ConstraintViolation;
-import javax.xml.validation.Validator;
+// saat mengimport validation ada 2 yang kalian harus perhatikan
+import javax.validation.*;
 import java.util.Set;
 
 @Component
