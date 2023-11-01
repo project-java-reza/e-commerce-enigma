@@ -15,13 +15,4 @@ public class TokonyarezaApplication {
         SpringApplication.run(TokonyarezaApplication.class, args);
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-
-
-
-
 }
