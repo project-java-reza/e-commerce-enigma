@@ -1,0 +1,11 @@
+POST http://localhost:8080/api/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email" : "rizqirezaardiansyah@gmail.com",
+  "password": "password",
+  "name": "Rizqi",
+  "address": "Jalan raya",
+  "mobilePhone": "0874664646777"
+}
