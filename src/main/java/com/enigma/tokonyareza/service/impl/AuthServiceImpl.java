@@ -3,6 +3,7 @@ package com.enigma.tokonyareza.service.impl;
 import com.enigma.tokonyareza.entity.Customer;
 import com.enigma.tokonyareza.entity.Role;
 import com.enigma.tokonyareza.entity.UserCredential;
+import com.enigma.tokonyareza.entity.UserDetailImpl;
 import com.enigma.tokonyareza.entity.constant.ERole;
 import com.enigma.tokonyareza.model.request.AuthRequest;
 import com.enigma.tokonyareza.model.request.RegisterSellerRequest;
@@ -19,41 +20,44 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
 public class AuthServiceImpl implements AuthService {
 
     private final UserCredentialRepository userCredentialRepository;
-    private final AuthenticationManager authenticationManager;
     private final BCryptUtils bCryptUtils;
     private final CustomerService customerService;
-    private final JwtUtils jwtUtils;
-    private final ValidationUtil validationUtil;
-
     private final RoleService roleService;
 
+    private final ValidationUtil validationUtil;
+    private final AuthenticationManager authenticationManager;
+    private final JwtUtils jwtUtils;
 
     @Transactional(rollbackOn = Exception.class)
     @Override
     public RegisterResponse register(AuthRequest authRequest) {
         try {
-
-            Role role = roleService.getOrSave(ERole.ROLE_CUSTOMER);
-
-            UserCredential credential= UserCredential.builder()
+            // untuk Role dan sebelum itu kita butuh buat file RoleService nya untuk pertama kali buat saat registrasi role nya sebagai apa
+            Role role = roleService.getOrSave(ERole.ROLE_CUSTOMER); // ini kita buat role nya
+            UserCredential credential= UserCredential.builder() // ini untuk UserCredential
                     .email(authRequest.getEmail())
                     .password(bCryptUtils.hashPassword(authRequest.getPassword()))
-                    .roles(List.of(role))
+                    .roles(List.of(role)) // role ini kita dapet dari List of si role nya
                     .build();
-            UserCredentialRepository.saveAndFlush(credential);
+            userCredentialRepository.saveAndFlush(credential);
 
-            Customer customer = Customer.builder()
+            Customer customer = Customer.builder() // Role untuk customer
                     .name(authRequest.getName())
                     .address(authRequest.getAddress())
                     .mobilePhone(authRequest.getMobilePhone())
@@ -65,12 +69,15 @@ public class AuthServiceImpl implements AuthService {
             return RegisterResponse.builder()
                     .email(credential.getEmail())
                     .build();
+
         } catch (DataIntegrityViolationException exception) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "user already exists");
 
         }
-        return null;
     }
+    // setelah kita buat AuthService untuk Register selanjutnya kita buat Controller nya
+
+
 
     @Override
     public RegisterResponse registerAdmin(AuthRequest authRequest) {
@@ -84,6 +91,20 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public LoginResponse login(AuthRequest request) {
-        return null;
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+                request.getEmail(),
+                request.getPassword()
+        ));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        UserDetailImpl userDetails = (UserDetailImpl) authentication.getPrincipal();
+        List<String> roles = userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList());
+
+        String token = jwtUtils.generateToken(userDetails.getEmail());
+        return LoginResponse.builder()
+                .email(userDetails.getEmail())
+                .roles(roles)
+                .token(token)
+                .build();
     }
 }

@@ -34,4 +34,8 @@ public class Customer {
 
     /*@OneToMany(mappedBy = "customer")
     private List<Order> orders;*/
+
+    @OneToOne
+    @JoinColumn(name = "user_credential_id")
+    private UserCredential userCredential;
 }

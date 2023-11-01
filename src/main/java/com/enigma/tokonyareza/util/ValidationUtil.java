@@ -19,4 +19,6 @@ public class ValidationUtil {
             throw new ConstraintViolationException(result);
         }
     }
+
+    // setelah ini kita buat service untuk AuthService
 }

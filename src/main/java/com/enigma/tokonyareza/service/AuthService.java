@@ -7,11 +7,12 @@ import com.enigma.tokonyareza.model.response.LoginResponse;
 import com.enigma.tokonyareza.model.response.RegisterResponse;
 
 public interface AuthService {
+
+    // isinya untuk auth register
+
     RegisterResponse register(AuthRequest authRequest);
     RegisterResponse registerAdmin(AuthRequest authRequest);
     RegisterResponse registerSeller(RegisterSellerRequest request);
     LoginResponse login(AuthRequest request);
-
-    
 
 }

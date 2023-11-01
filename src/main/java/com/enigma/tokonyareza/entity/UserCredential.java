@@ -37,6 +37,5 @@ public class UserCredential {
             name = "role_id",
             referencedColumnName = "role_id"
     ))
-
     private List<Role> roles;
 }

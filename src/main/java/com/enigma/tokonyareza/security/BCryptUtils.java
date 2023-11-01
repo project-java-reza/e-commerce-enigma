@@ -10,7 +10,7 @@ public class BCryptUtils {
 
     private final PasswordEncoder passwordEncoder;
 
-    private String hashPassword(String password) {
+    public String hashPassword(String password) {
         return passwordEncoder.encode(password);
     }
 
