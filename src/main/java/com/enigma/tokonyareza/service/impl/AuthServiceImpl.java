@@ -42,6 +42,8 @@ public class AuthServiceImpl implements AuthService {
 
     private final ValidationUtil validationUtil;
     private final AuthenticationManager authenticationManager;
+
+
     private final JwtUtils jwtUtils;
 
     @Transactional(rollbackOn = Exception.class)
@@ -98,9 +100,9 @@ public class AuthServiceImpl implements AuthService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         UserDetailImpl userDetails = (UserDetailImpl) authentication.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList());
+        List<String> roles = userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()); // List ini diambil dari userDetails dan disini kita masukin GrantedAuthority nya
 
-        String token = jwtUtils.generateToken(userDetails.getEmail());
+        String token = jwtUtils.generateToken(userDetails.getEmail()); // ini kita generate tokennya diambil dari jwtUtils
         return LoginResponse.builder()
                 .email(userDetails.getEmail())
                 .roles(roles)

@@ -1,0 +1,27 @@
+
+### Register
+POST http://localhost:8080/api/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email" : "rizqi@gmail.com",
+  "password": "password1",
+  "name": "reza",
+  "address": "Jalan",
+  "mobilePhone": "083938774"
+}
+
+### LOGIN
+POST http://localhost:8080/api/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email" : "rizqi@gmail.com",
+  "password": "password1"
+}
+
+### Get Customer
+GET http://localhost:8080/api/customer
+Accept: application/json
