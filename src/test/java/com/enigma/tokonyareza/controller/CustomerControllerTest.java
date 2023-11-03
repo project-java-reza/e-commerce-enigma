@@ -84,7 +84,6 @@ class CustomerControllerTest {
                 .andExpect(jsonPath("$.data[0].name").value(dummyCustomer.getName()))
                 .andExpect(jsonPath("$.data[1].id").value(dummyCustomer2.getId()))
                 .andExpect(jsonPath("$.data[1].name").value(dummyCustomer2.getName()));
-        // and Expect sama seperti sebelumnya assertEqual
 
         verify(customerService, times(1)).getAll();
     }
