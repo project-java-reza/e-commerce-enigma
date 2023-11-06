@@ -13,8 +13,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/customer")
-public class
-CustomerController {
+public class CustomerController {
 
 
     private final CustomerService customerService;
