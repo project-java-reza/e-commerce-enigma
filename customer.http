@@ -1,3 +1,15 @@
+## NGINX CREATE NEW CUSTOMER ##
+POST https://7378-103-144-175-173.ngrok-free.app/customer
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name" : "reza",
+  "address" : "jalan raya ",
+  "mobilePhone": "0857343887",
+  "email": "rezaa@gmail.com"
+}
+
 ### Create New Customer
 POST http://localhost:8080/customer
 Accept: application/json
@@ -36,7 +48,6 @@ Content-Type: application/json
 ### Delete Customer
 DELETE http://localhost:8080/customer/0da481a1-57e3-49c8-aa0d-7b2e16ebba74
 Content-Type: application/json
-
 
 
 
