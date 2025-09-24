@@ -5,13 +5,14 @@ import com.enigma.tokonyareza.entity.Customer;
 import java.util.List;
 
 public interface CustomerService {
-    Customer create(Customer customer);
+   Customer create(Customer customer);
 
-    Customer getById(String id);
+   Customer getById(String id);
 
-    List<Customer> getAll();
+   List<Customer> getAll();
 
-    Customer update(Customer customer);
+   Customer update(Customer customer);
 
-    void delete(String id);
+   void delete(String id);
+
 }
